@@ -1,0 +1,17 @@
+{
+    "mainFolder": {
+        "Id": "",
+        "files": {
+            "randomComplimentsId": "",
+            "currentComplimentsId": "",
+            "scheduledComplimentsId": ""
+        },
+        "folders": {
+            "imageFolderId": ""
+        },
+        "misc": {
+            "configId": "",
+            "instructionsId": ""
+        }
+    }
+}
