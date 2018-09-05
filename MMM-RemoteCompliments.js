@@ -19,7 +19,7 @@ Module.register("MMM-RemoteCompliments", {
      */
 	getScripts: function () {
 		var self = this;
-		return [self.file('/Scripts/jquery-3.3.1.min.js')];
+		return [self.file('/scripts/jquery-3.3.1.min.js')];
 	},
 
 	/**
