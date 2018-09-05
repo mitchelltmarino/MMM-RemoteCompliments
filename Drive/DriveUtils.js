@@ -145,6 +145,8 @@ class driveFetcher {
                         listFileImageContents(functionBooleans.images, drive, self.driveFileIds.mainFolder.folders.imageFolderId).then((payload) => {
                             // If images function is not active, just return payload.files (which will be an empty array).
                             if (!functionBooleans.images) return payload.files;
+                            // If images folder does not exist, 
+                            if (!fs.existsSync(`${self.basePath}/Drive/images/`)) fs.mkdirSync(`${self.basePath}/Drive/images/`);
                             // If images function is active,
                             /*
                             - Delete local image files no longer on Google Drive.
@@ -160,7 +162,7 @@ class driveFetcher {
 
                                 // Read image files that exist locally.
                                 fs.readdir(`${self.basePath}/Drive/images/`, (err, localImageFiles) => {
-                                    if (err) reject(`Error reading contents from file located at: ${self.basePath}/Drive/images`);
+                                    if (err) return reject(`Error reading contents from file located at: ${self.basePath}/Drive/images`);
 
                                     // Queue up downloads for image files from Drive that do not exist locally.
                                     driveImageFiles.forEach(function (fileInfo) {
@@ -208,7 +210,7 @@ class driveFetcher {
                                             // Get a list of files that exist locally.
                                             fs.readdir(`${self.basePath}/Drive/images/`, (err, localImageFiles) => {
                                                 // Handle error in the case that the image folder could not be read.
-                                                if (err) reject(`Could not read contents of folder located at: ${self.basePath}/Drive/images`);
+                                                if (err) return reject(`Could not read contents of folder located at: ${self.basePath}/Drive/images`);
 
                                                 // Add the full file path to the local image files.
                                                 for (var i in localImageFiles) {
@@ -425,7 +427,7 @@ function authorize(credentials, token) {
             oAuth2Client.setCredentials(token);
             resolve(oAuth2Client);
         } catch (err) {
-            reject("Error obtaining Authorization.");
+            return reject("Error obtaining Authorization.");
         }
     });
 }
@@ -449,7 +451,7 @@ function listFileImageContents(run, drive, fileId) {
             pageToken: null
         }, function (err, payload) {
             // If request error, reject with error message.
-            if (err) reject(`Unable to get imageFileContents of the drive Image folder with ID '${fileId}'.`);
+            if (err) return reject(`Unable to get imageFileContents of the drive Image folder with ID '${fileId}'.`);
             resolve(payload.data);
         });
     });
@@ -471,7 +473,7 @@ function getDocumentContents(run, drive, fileId) {
             mimeType: 'text/plain'
         }, function (err, payload) {
             // If request error, reject with error message.
-            if (err) reject(`Error with GET request for document with ID '${fileId}'.`);
+            if (err) return reject(`Error with GET request for document with ID '${fileId}'.`);
             // On success, return the results of the export..
             data = payload.data;
             // Weird bug where symbols can be appended to beginning of message it seems. 
@@ -500,7 +502,7 @@ function getSpreadsheetContents(run, sheets, fileId) {
             range: 'A:E',
             majorDimension: 'ROWS',
         }, (err, result) => {
-            if (err) reject(`Error with GET request for spreadsheet with ID '${fileId}'.`);
+            if (err) return reject(`Error with GET request for spreadsheet with ID '${fileId}'.`);
             resolve(result.data.values);
         });
     });
@@ -678,13 +680,13 @@ function downloadDriveImageFile(drive, basePath, fileInfo) {
             // Callback.
             (err, payload) => {
                 // Handle request error.
-                if (err) reject(`Error with get request for image: {id: '${fileInfo.id}', name: '${fileInfo.name}' }`);
+                if (err) return reject(`Error with get request for image: {id: '${fileInfo.id}', name: '${fileInfo.name}' }`);
 
                 // Handle errors that occur when downloading file via stream.
                 payload.data.on('error', () => {
                     // If download stream encountered an error, delete the local file. (i.e. the incomplete download)
                     fs.unlink(`${basePath}/Drive/images/${fileId}.${extension}`, (err) => {
-                        if (err) reject(`Error downloading ${basePath}/Drive/images/${fileId}.${extension} and it could not be deleted locally.`);
+                        if (err) return reject(`Error downloading ${basePath}/Drive/images/${fileId}.${extension} and it could not be deleted locally.`);
                         reject(`${basePath}/Drive/images/${fileId}.${extension} was deleted due to an error downloading.`)
                     });
                 });
