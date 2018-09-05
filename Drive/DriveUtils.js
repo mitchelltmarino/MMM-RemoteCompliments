@@ -23,10 +23,10 @@ class driveFetcher {
         // Broke down try catch blocks for easier troubleshooting.
         // Get driveFileId data.
         try {
-            var fileIdContents = fs.readFileSync(`${self.basePath}/Drive/driveFileIds.json`);
+            var fileIdContents = fs.readFileSync(`${self.basePath}/Drive/DriveFileIds.json`);
             self.driveFileIds = JSON.parse(fileIdContents);
         } catch (err) {
-            console.log(`${self.moduleName}: Error opening a required file for driveFetcher: ${self.basePath}/Drive/driveFileIds.json.\n`, err);
+            console.log(`${self.moduleName}: Error opening a required file for driveFetcher: ${self.basePath}/Drive/DriveFileIds.json.\n`, err);
         }
         // Get Authorization data.
         try {
