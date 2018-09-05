@@ -3,15 +3,12 @@
         "name": "Smart Mirror - Remote Compliments",
         "files": {
             "randomComplimentsName": "Random Compliments",
-            "currentComplimentsName": "Current Compliments",
-            "scheduledComplimentsName": "Scheduled Compliments"
+            "currentComplimentName": "Current Compliment",
+            "scheduledComplimentsName": "Scheduled Compliments",
+            "config": "Configuration"
         },
         "folders": {
             "imageFolderName": "Images"
-        },
-        "misc": {
-            "config": "Configuration",
-            "instructions": "Instructions"
         }
     }
 }
