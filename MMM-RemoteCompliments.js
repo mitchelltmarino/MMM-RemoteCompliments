@@ -7,6 +7,7 @@
 
 Module.register("MMM-RemoteCompliments", {
 	defaults: {
+		header: "MMM-RemoteCompliments",
 		fadeSpeed: 4000,
 		updateInterval: 10000,
 		imageMaxWidth: '500px',
@@ -39,7 +40,7 @@ Module.register("MMM-RemoteCompliments", {
 		// Current values.
 		self.image = "";
 		self.compliment = "";
-		self.headerContent = "";
+		self.headerContent = self.config.headerContent;
 		self.imageLoadHandler = undefined;
 		self.hidden = false;
 		// Configuration Defaults.
@@ -144,7 +145,7 @@ Module.register("MMM-RemoteCompliments", {
 		// Update handler if it does not currently exist.
 		if (self.imageLoadHandler == null) {
 			// Store the 
-			imageDOM.on("load", function () {
+			self.imageLoadHandler = imageDOM.on("load", function () {
 				if (self.image !== "") $(this).fadeTo(speed, 1, "swing");
 			});
 		}

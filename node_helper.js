@@ -217,7 +217,7 @@ module.exports = NodeHelper.create({
 			if (payload === self.lastImage) return;
 			self.lastImage = payload;
 			// Parse payload into proper route for the client process to access image.
-			if (payload !== "") payload = "modules/" + payload.split("modules\\")[1];
+			if (payload !== "") payload = "modules" + payload.split("modules")[1];
 		}
 		// 'HEADER_CONTENT'
 		else if (notification === 'HEADER_CONTENT') {
