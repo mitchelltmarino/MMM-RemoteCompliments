@@ -82,26 +82,33 @@ This way the module configurations can be easily modified at any time, without a
 In order for MMM-RemoteCompliments to properly integrate with Google Drive, you must first download dependencies, create a Google Cloud Platform project to service the module, and execute a provided setup file.
 
 1. **Download dependencies**
+
     * Open the console and enter: `npm install googleapis`
-        * This will install the Google APIs service. (Working as of googleAPIS@33.0.0)
+        * This will install the Google APIs service. (Working as of googleapis@33.0.0)
 
 2. **Create a Google Cloud Platform project**
+
     * Visit: https://console.developers.google.com.
+
     * Create a new project, with a name of your choice.
         * Enable the Google Drive API.
         * Enable the Google Sheets API.
+
     * Create new credentials for the project, with the credential type set as "other".
         * Download the JSON for the credentials you created. This is called the client secret.
         * Move the client secret into `/modules/MMM-RemoteCompliments/Drive`, then rename the file to "Auth.json". (Case sensitive)
 
 3. **Execute the setup file**
+
     * Open a console and cd into `/modules/MMM-RemoteCompliments/Drive`.
         * Enter into the console: `node Setup`.
             * This will run Setup.js
+
     * You will be provided with a URL you must visit to authorize the application. 
         * Visit the URL.
         * Login with your Google Account and press then click on "Allow".
         * Copy and paste the code you are provided with into the console.
+
     * If done correctly, MMM-RemoteCompliments will now be authorized to integrate with the Google Cloud Platform project you created earlier.
-        * Once Authorized successfully, the setup will create the Google Drive folders, files, and other dependencies required by the MMM-RemoteCompliments module.
+        * The setup will now create the Google Drive folders, files, and other dependencies required by the MMM-RemoteCompliments module.
         * If the setup was successful, you will get a success message. If the setup encounters an error, please tend to the error that occurred (it will inform you what went wrong) and re-run `node Setup`.
