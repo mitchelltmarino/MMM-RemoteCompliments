@@ -9,7 +9,7 @@ MMM-RemoteCompliments provides seamless integration with Google Drive to display
 * Navigate to the MagicMirror/modules directory.
 * Enter `git clone https://github.com/mitchelltmarino/MMM-RemoteCompliments.git`
 * Follow the [setup instructions](#setup-instructions) at the bottom of this page.
-* Restart MagicMirror
+* Restart MagicMirror.
 
 ## Using the module
 
@@ -110,7 +110,7 @@ The majority of configurations for MMM-RemoteCompliments done via Google Drive, 
 This way the module configurations can be easily modified at any time, without a direct connection to the mirror. The configurations options available are broken down by sections.
 
 
-### Enable Function Configurations
+### Enable Functions
 | Option           | Description
 |----------------- |-----------
 | `Scheduled Compliments` | Whether to display scheduled compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
@@ -119,7 +119,7 @@ This way the module configurations can be easily modified at any time, without a
 | `Images`        | Whether to display images. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 
 
-### Random Compliments Configurations
+### Random Compliments Variables
 | Option           | Description
 |----------------- |-----------
 | `Morning Start Time`        | The time in hours (24 hour format), after which the time of day is considered the morning. <br><br>**Type:** `int` <br>**Possible Values:** `0` - `24`<br>**Default Value:** `3`

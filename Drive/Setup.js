@@ -254,7 +254,7 @@ function createDriveFile(drive, fileMetadata) {
 function setupConfigFile(auth, fileId) {
   var sheets = google.sheets({ version: 'v4', auth });
   var values = [
-    ['Enable Module Configurations'],
+    ['Enable Functions'],
     ['Function', 'Is Active (True / False)'],
     ['Scheduled Compliments', true],
     ['Current Compliment', true],
@@ -262,7 +262,7 @@ function setupConfigFile(auth, fileId) {
     ['Images', true],
     [],
     [],
-    ['Random Compliments Configurations'],
+    ['Random Compliments Variables'],
     ['Variable', 'Value'],
     ['Morning Start Time', 3],
     ['Morning End Time', 12],
