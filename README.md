@@ -79,7 +79,7 @@ This way the module configurations can be easily modified at any time, without a
 
 ## Setup Instructions
 
-In order for MMM-RemoteCompliments to properly integrate with Google Drive, you must first download dependencies, create a Google Cloud Platform project to service the module, and execute a provided setup file.
+For MMM-RemoteCompliments to properly integrate with Google Drive you must download dependencies, create a Google Cloud Platform project to service the module, and execute the provided setup file.
 
 1. **Download dependencies**
 
