@@ -1,9 +1,3 @@
-<style>
-table {
-    width:100%;
-}
-</style>
-
 # MMM-RemoteCompliments
 
 This is a module for the open source [MagicMirror²](https://github.com/MichMich/MagicMirror/) platform.
