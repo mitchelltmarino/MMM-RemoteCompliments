@@ -171,8 +171,6 @@ Compliments offers a generous amount of formatting and input options.
     * In this case, the module assumes the current year.
     * Example: February 28
 
-* Other formats accepted by Moment.js
-
 ### Valid time formats
 
 * **HH:MM PM**
