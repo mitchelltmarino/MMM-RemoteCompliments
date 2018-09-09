@@ -159,15 +159,15 @@ Compliments offers a generous amount of formatting and input options.
 
 ### Valid date formats
 
-* YYYY-MM-DD
+* **YYYY-MM-DD**
     * This is the ISO 8601 standard.
     * Example: 1997-02-28
 
-* Month Day, Year
+* **Month Day, Year**
     * Works for short form of month as well. (Example: Feb)
     * Example: February 28, 1997
 
-* Month Day
+* **Month Day**
     * In this case, the module assumes the current year.
     * Example: February 28
 
@@ -175,17 +175,17 @@ Compliments offers a generous amount of formatting and input options.
 
 ### Valid time formats
 
-* HH:MM PM
+* **HH:MM PM**
     * Examples: 
         * 5:30 PM
         * 10:00 PM
 
-* HH:MM AM
+* **HH:MM AM**
     * Examples:
         * 5:30 PM
         * 10:00 PM
 
-* HH:MM (24 Hour Format)
+* **HH:MM** (24 Hour Format)
     * Examples:
         * 8:00 (8:00 AM)
         * 20:00 (8:00 PM)
