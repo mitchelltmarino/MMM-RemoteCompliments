@@ -7,7 +7,7 @@ MMM-RemoteCompliments provides seamless integration with Google Drive to display
 ## Installation 
 
 * Navigate to the MagicMirror/modules directory.
-* Enter: `git clone https://github.com/mitchelltmarino/MMM-RemoteCompliments.git`
+* Enter `git clone https://github.com/mitchelltmarino/MMM-RemoteCompliments.git`
 * Follow the [setup instructions](##Setup-Instructions) at the bottom of this page.
 * Restart MagicMirror
 
@@ -83,13 +83,13 @@ For MMM-RemoteCompliments to properly integrate with Google Drive you must downl
 
 1. **Download dependencies**
 
-    * Open the console and enter: `npm install googleapis`
+    * Open the console and enter `npm install googleapis`
 
         * This will install the Google APIs service. (Working as of googleapis@33.0.0)
 
 2. **Create a Google Cloud Platform project**
 
-    * Visit: https://console.developers.google.com.
+    * Visit https://console.developers.google.com.
 
     * Create a new project, with a name of your choice.
         * Enable the Google Drive API.
@@ -102,14 +102,15 @@ For MMM-RemoteCompliments to properly integrate with Google Drive you must downl
 3. **Execute the setup file**
 
     * Open a console and cd into `/modules/MMM-RemoteCompliments/Drive`.
-        * Enter into the console: `node Setup`.
-            * This will run Setup.js
+        * Enter `node Setup`.
+            * This will run the Setup.js script.
 
     * You will be provided with a URL you must visit to authorize the application. 
         * Visit the URL.
         * Login with your Google Account and press then click on "Allow".
         * Copy and paste the code you are provided with into the console.
-
-    * If done correctly, MMM-RemoteCompliments will now be authorized to integrate with the Google Cloud Platform project you created earlier.
-        * The setup will now create the Google Drive folders, files, and other dependencies required by the MMM-RemoteCompliments module.
-        * If the setup was successful, you will get a success message. If the setup encounters an error, please tend to the error that occurred (it will inform you what went wrong) and re-run `node Setup`.
+        * If done correctly, MMM-RemoteCompliments will now be authorized to integrate with the Google Cloud Platform project you created earlier.
+        
+    * The setup will then create the Google Drive folders, files, and other dependencies required by the MMM-RemoteCompliments module.
+        * If the setup was successful, you will get a success message. 
+        * If the setup encounters an error, please tend to the error that occurred (it will inform you what went wrong) and re-run `node Setup`.
