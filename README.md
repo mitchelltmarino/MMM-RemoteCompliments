@@ -95,8 +95,8 @@ For MMM-RemoteCompliments to properly integrate with Google Drive you must downl
         * Enable the Google Drive API.
         * Enable the Google Sheets API.
 
-    * Create new credentials for the project, with the credential type set as "other".
-        * Download the JSON for the credentials you created. This is called the client secret.
+    * Create new credentials for the project, with the credential type set to "other".
+        * Download the JSON file for the credentials you created. This is called the client secret.
         * Move the client secret into `/modules/MMM-RemoteCompliments/Drive`, then rename the file to "Auth.json". (Case sensitive)
 
 3. **Execute the setup file**
