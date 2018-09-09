@@ -90,15 +90,15 @@ Smart Mirror - Remote Compliments
 └─── images
 ```
 
-Once the files are created on your Google Drive, you can rename them however you like, and move the files wherever you want. The files are tracked by the module through their unique file IDs. The following table gives a breakdown of each file and folder:
+Once the files are created on your Google Drive, you can rename them however you like, and move the files wherever you want. The modules keeps track of the files by using their unique file IDs. The following table gives a breakdown of each file and folder:
 
 | File / Folder Name           | Description
 |----------------- |-----------
-| `Scheduled Compliment`        | **Type:** Spreadsheet <br>This spreadsheet allows for compliments to be scheduled to appear on certain dates, and between intervals of time with to-the-minute precision. <br><br> Specify `Start Date`, `Start Time`, `End Date`, `End Time` and `Compliment` to have a compliment appear on the mirror between any given interval! Please visit [Scheduling Compliments]() to learn more.
-| `Current Compliment`        | **Type:** Document <br>This document should contain current compliment to display on the mirror. <br><br> The contents of this document will display on the mirror, if any contents are present.
-| `Random Compliments`        | **Type:** Document <br>This document should contain a JSON representation of random compliments to display based on time of day, or current weather. <br><br> Check out the [compliments module configuration](https://github.com/MichMich/MagicMirror/tree/master/modules/default/compliments#compliment-configuration) for more information, as the MMM-RemoteCompliments implementation for random compliments was essentially built on top of that. <br><br>**Possible values for time of day:** `morning`, `afternoon`, `evening`, and `anytime`. <br> **Possible values for current weather:** `day_sunny`, `day_cloudy`, `cloudy`, `cloudy_windy`, `showers`, `rain`, `thunderstorm`, `snow`, `fog`, `night_clear`, `night_cloudy`, `night_showers`, `night_rain`, `night_thunderstorm`, `night_snow`, and `night_alt_cloudy_windy`.
+| `Scheduled Compliment`        | **Type:** Spreadsheet <br>This spreadsheet allows for compliments to be scheduled to appear on certain dates, and between intervals of time with to-the-minute precision. <br><br> Specify `Start Date`, `Start Time`, `End Date`, `End Time` and `Compliment` to have a compliment appear on the mirror between any given interval! Please visit [scheduling compliments](#scheduling-compliments) to learn more.
+| `Current Compliment`        | **Type:** Document <br>This document should contain current compliment to display on the mirror. <br><br> The contents of this document will display on the mirror, if any content is present.
+| `Random Compliments`        | **Type:** Document <br>This document should contain a JSON representation of random compliments to display based on time of day, or current weather. Each attribute should be an array of strings. <br><br> Check out the [compliments module configuration](https://github.com/MichMich/MagicMirror/tree/master/modules/default/compliments#compliment-configuration) for more information, as the MMM-RemoteCompliments implementation for random compliments was essentially built on top of that. <br><br>**Possible values for time of day:** `morning`, `afternoon`, `evening`, and `anytime`. <br> **Possible values for current weather:** `day_sunny`, `day_cloudy`, `cloudy`, `cloudy_windy`, `showers`, `rain`, `thunderstorm`, `snow`, `fog`, `night_clear`, `night_cloudy`, `night_showers`, `night_rain`, `night_thunderstorm`, `night_snow`, and `night_alt_cloudy_windy`.
 | `Configuration`        | **Type:** Spreadsheet <br> This spreadsheet contains many different configuration options for MMM-RemoteCompliments. <br><br> The majority of configurations  are done in this spreadsheet. Visit [Google Drive configuration options](#google-drive-configuration-options) to learn more about the contents of this spreadsheet. 
-| `Images`        | **Type:** Folder <br> Any images placed in this folder will appear on the mirror. <br><br> If there is only one image, then that image will display statically on the mirror. If there is multiple images, however, the module will rotate through the images based on the [update interval](#update-intervals) specified for images in the configuration file.
+| `Images`        | **Type:** Folder <br> Any images present in this folder will appear on the mirror. <br><br> If there is only one image, then that image will display statically on the mirror. If there is multiple images, however, the module will rotate through the images based on the [update interval](#update-intervals) specified for images in the configuration file.
 
 Note that for compliments, there is a priority mechanism which chooses which type of compliment to display in the case that multiple compliment types are present. The priority is as follows:
 * Scheduled Compliments > Current Compliment > Random Compliments
@@ -142,3 +142,58 @@ This way the module configurations can be easily modified at any time, without a
 | `Image Max Width`        | The maximum width of the image displayed.  (Pixels) <br><br>**Type:** `int` <br>**Default Value:** `500`
 | `Image Max Height`        | The maximum height of the image displayed. (Pixels) <br><br>**Type:** `int` <br>**Default Value:** `500`
 | `Append Period`        | Whether to append a period to the end of the compliment (if the compliment does not end with a symbol already). <br><br>**Type:** `Boolean` <br>**Possible Values:**  `true` or `false` <br>**Default Value:** `false`
+
+## Scheduling Compliments
+
+The scheduled compliments spreadsheet allows for compliments to appear between given date and time intervals.
+
+| Option           | Description
+|----------------- |-----------
+| `Start Date`        | The start date of the compliment.
+| `Start Time`        | The start time of the compliment.
+| `End Date`        | The end date of the compliment.
+| `End Time`        | The end time of the compliment. 
+| `Compliment`        | The compliment to display.
+
+Compliments offers a generous amount of formatting and input options.
+
+### Valid date formats
+
+* YYYY-MM-DD
+    * This is the ISO 8601 standard.
+    * Example: 1997-02-28
+
+* Month Day, Year
+    * Works for short form of month as well. (Example: Feb)
+    * Example: February 28, 1997
+
+* Month Day
+    * In this case, the module assumes the current year.
+    * Example: February 28
+
+* Other formats accepted by Moment.js
+
+### Valid time formats
+
+* HH:MM PM
+    * Examples: 
+        * 5:30 PM
+        * 10:00 PM
+
+* HH:MM AM
+    * Examples:
+        * 5:30 PM
+        * 10:00 PM
+
+* HH:MM (24 Hour Format)
+    * Examples:
+        * 8:00 (8:00 AM)
+        * 20:00 (8:00 PM)
+
+### Input cases
+
+* If only `start date` is specified, the compliment will be displayed for that entire day.
+
+* If only `start date` and `start time` are specified, the compliment will be displayed from the start time until 12:00 AM the next day.  
+
+* If only `start date`, `start time`, and `end time` are specified, the compliment will be displayed between the given time interval for that day.
