@@ -8,7 +8,7 @@ MMM-RemoteCompliments provides seamless integration with Google Drive to display
 
 * Navigate to the MagicMirror/modules directory.
 * Enter `git clone https://github.com/mitchelltmarino/MMM-RemoteCompliments.git`
-* Follow the [setup instructions](##Setup-Instructions) at the bottom of this page.
+* Follow the [setup instructions](#setup-instructions) at the bottom of this page.
 * Restart MagicMirror
 
 ## Using the module
