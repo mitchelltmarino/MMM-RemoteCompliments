@@ -84,6 +84,7 @@ In order for MMM-RemoteCompliments to properly integrate with Google Drive, you 
 1. **Download dependencies**
 
     * Open the console and enter: `npm install googleapis`
+
         * This will install the Google APIs service. (Working as of googleapis@33.0.0)
 
 2. **Create a Google Cloud Platform project**
