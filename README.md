@@ -1,3 +1,9 @@
+<style>
+table {
+    width:100%;
+}
+</style>
+
 # MMM-RemoteCompliments
 
 This is a module for the open source [MagicMirror²](https://github.com/MichMich/MagicMirror/) platform.
@@ -43,11 +49,10 @@ The majority of configurations for MMM-RemoteCompliments done via Google Drive, 
 
 This way the module configurations can be easily modified at any time, without a direct connection to the mirror. The configurations options available are broken down by sections.
 
-
-### Enable Module Configurations
+### Enable Function Configurations
 | Option           | Description
 |----------------- |-----------
-| `Scheduled Compliments`        | Whether to display scheduled compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
+| `Scheduled Compliments` | Whether to display scheduled compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 | `Current Compliments`        | Whether to display current compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 | `Random Compliments`        | Whether to display random compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 | `Images`        | Whether to display images. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
