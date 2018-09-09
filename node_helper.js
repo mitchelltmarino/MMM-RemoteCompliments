@@ -429,7 +429,7 @@ module.exports = NodeHelper.create({
 				break;
 			}
 		}
-		// If compliment did not end with a period, append a period.
+		// If compliment did not end with a symbol, append a period.
 		if (append === true) compliment += '.';
 		return compliment;
 	}

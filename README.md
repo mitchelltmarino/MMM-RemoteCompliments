@@ -7,7 +7,7 @@ MMM-RemoteCompliments provides seamless integration with Google Drive to display
 ## Installation 
 
 * Navigate to the MagicMirror/modules directory.
-* Enter `git clone https://github.com/mitchelltmarino/MMM-RemoteCompliments.git`
+* Enter: `git clone https://github.com/mitchelltmarino/MMM-RemoteCompliments.git`
 * Follow the [setup instructions](##Setup-Instructions) at the bottom of this page.
 * Restart MagicMirror
 
@@ -52,6 +52,7 @@ This way the module configurations can be easily modified at any time, without a
 | `Random Compliments`        | Whether to display random compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 | `Images`        | Whether to display images. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 
+
 ### Random Compliments Configurations
 | Option           | Description
 |----------------- |-----------
@@ -67,6 +68,7 @@ This way the module configurations can be easily modified at any time, without a
 | `Random Compliments`| The number of minutes and seconds after which the random compliment displayed should change.<br><br>**Type:** `int` <br>**Possible Values:** Any number greater than 0. <br>**Default Value:** `30` minutes `0` seconds
 | `Images`| The number of minutes and seconds after which the image displayed should change.<br><br>**Type:** `int` <br>**Possible Values:**  Any number greater than 0. <br>**Default Value:** `0` minutes `30` seconds
 
+
 ### Miscellaneous
 | Option           | Description
 |----------------- |-----------
@@ -74,6 +76,7 @@ This way the module configurations can be easily modified at any time, without a
 | `Image Max Width`        | The maximum width of the image displayed.  (Pixels) <br><br>**Type:** `int` <br>**Default Value:** `500`
 | `Image Max Height`        | The maximum height of the image displayed. (Pixels) <br><br>**Type:** `int` <br>**Default Value:** `500`
 | `Append Period`        | Whether to append a period to the end of the compliment if it does not end with a symbol already. <br><br>**Type:** `Boolean` <br>**Possible Values:**  `true` or `false` <br>**Default Value:** `false`
+
 
 ## Setup Instructions
 
