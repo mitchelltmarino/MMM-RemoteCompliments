@@ -2,7 +2,7 @@
 
 This is a module for the open source [MagicMirror²](https://github.com/MichMich/MagicMirror/) platform.
 
-MMM-RemoteCompliments provides seamless integration with Google Drive to display compliments and images on the mirror.
+MMM-RemoteCompliments provides seamless integration with Google Drive to display compliments and images on the MagicMirror².
 
 ## Installation 
 
