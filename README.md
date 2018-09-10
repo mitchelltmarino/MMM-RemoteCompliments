@@ -40,13 +40,13 @@ The following properties can be configured in the `config/config.js` file:
 
 ## Google Drive configuration options
 
-The majority of configurations for MMM-RemoteCompliments done via Google Drive, in the `configuration` spreadsheet.
+The majority of configurations for MMM-RemoteCompliments done via Google Drive, in the `configuration` spreadsheet. This way the module configurations can be easily modified at any time, without a direct connection to the mirror. 
 
-This way the module configurations can be easily modified at any time, without a direct connection to the mirror. The configurations options available are broken down by sections.
+The configurations options available are broken down by sections. The default value is used if the value is invalid or left empty.
 
 
 ### Enable Functions
-| Option           | Description
+| Function           | Description
 |----------------- |-----------
 | `Scheduled Compliments` | Whether to display scheduled compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 | `Current Compliments`        | Whether to display current compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
@@ -54,7 +54,7 @@ This way the module configurations can be easily modified at any time, without a
 | `Images`        | Whether to display images. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 
 ### Random Compliments Variables
-| Option           | Description
+| Variable           | Description
 |----------------- |-----------
 | `Morning Start Time`        | The time in hours (24 hour format), after which the time of day is considered the morning. <br><br>**Type:** `int` <br>**Possible Values:** `0` - `24`<br>**Default Value:** `3`
 | `Morning End Time`        | The time in hours (24 hour format), after which the time of day is no longer considered the morning.<br><br>**Type:** `int` <br>**Possible Values:** `0` - `24`<br>**Default Value:** `12`
@@ -63,14 +63,14 @@ This way the module configurations can be easily modified at any time, without a
 
 
 ### Update Intervals
-| Option           | Description 
+| Variable           | Description 
 |----------------- |------------
 | `Random Compliments`| The number of minutes and seconds after which the random compliment displayed should change.<br><br>**Type:** `int` <br>**Possible Values:** Any number greater than 0. <br>**Default Value:** `30` minutes `0` seconds
 | `Images`| The number of minutes and seconds after which the image displayed should change.<br><br>**Type:** `int` <br>**Possible Values:**  Any number greater than 0. <br>**Default Value:** `0` minutes `30` seconds
 
 
 ### Miscellaneous
-| Option           | Description
+| Variable           | Description
 |----------------- |-----------
 | `Header Content`        | The content of the module header.<br><br>**Type:** `String` <br>**Default Value:** `""`
 | `Image Max Width`        | The maximum width of the image displayed.  (Pixels) <br><br>**Type:** `int` <br>**Default Value:** `500`
