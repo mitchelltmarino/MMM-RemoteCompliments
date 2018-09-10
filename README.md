@@ -136,8 +136,8 @@ Compliments offers a generous amount of formatting and input options.
 * **HH:MM XM**
     * Examples: 
         * 5:30 AM
-        * 10:00 AM
         * 5:30 PM
+        * 10:00 AM
         * 10:00 PM
 
 * **HH:MM** (Military Time)
