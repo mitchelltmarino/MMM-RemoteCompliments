@@ -38,73 +38,6 @@ The following properties can be configured in the `config/config.js` file:
 | `fetchInterval`        | The interval at which fetches from Google Drive should occur. (Milliseconds) <br><br>**Type:** `int`<br>**Possible Values:** `0` - `5000`<br>**Default Value:** `4000` (4 seconds)   
 
 
-## Setup Instructions
-
-For MMM-RemoteCompliments to properly integrate with Google Drive you must download dependencies, create a Google Cloud Platform project to service the module, and execute the provided setup file.
-
-1. **Download dependencies**
-
-    * Open the console and enter `npm install googleapis`
-
-        * This will install the Google APIs service. (Working as of googleapis@33.0.0)
-
-2. **Create a Google Cloud Platform project**
-
-    * Visit https://console.developers.google.com.
-
-    * Create a new project, with a name of your choice.
-        * Enable the Google Drive API.
-        * Enable the Google Sheets API.
-
-    * Create new credentials for the project.
-        * Create a new OAuth Client ID, with the credential type set to "other".
-        * Download the JSON file for the OAuth Client ID you created. This is called the client secret.
-        * Move the client secret file into `/modules/MMM-RemoteCompliments/Drive`, then rename the file to "Auth.json". (Case sensitive)
-            * Note that alternatively, you can create a file called Auth.json and paste the contents of that client secret file into Auth.json.
-
-3. **Execute the setup file**
-
-    * Open a console and cd into `/modules/MMM-RemoteCompliments/Drive`.
-        * Enter `node Setup`.
-            * This will run the Setup.js script.
-
-    * You will be provided with a URL you must visit to authorize the application. 
-        * Visit the URL.
-        * Login with your Google Account and press then click on "Allow".
-        * Copy and paste the code you are provided with into the console.
-        * If done correctly, MMM-RemoteCompliments will now be authorized to integrate with the Google Cloud Platform project you created earlier.
-        
-    * The setup will then create the Google Drive folders, files, and other dependencies required by the MMM-RemoteCompliments module.
-        * If the setup was successful, you will get a success message. 
-        * If the setup encounters an error, please tend to the error that occurred (it will inform you what went wrong) and re-run `node Setup`.
-
-
-## Google Drive files
-
-After the module is setup you will find a file hierarchy setup on your Google Drive like so:
-
-```
-Smart Mirror - Remote Compliments
-└─── Scheduled Compliments
-└─── Current Compliment
-└─── Random Compliments
-└─── Configuration
-└─── images
-```
-
-Once the files are created on your Google Drive, you can rename them however you like, and move the files wherever you want. The modules keeps track of the files by using their unique file IDs. The following table gives a breakdown of each file and folder:
-
-| File / Folder Name           | Description
-|----------------- |-----------
-| `Scheduled Compliment`        | **Type:** Spreadsheet <br>This spreadsheet allows for compliments to be scheduled to appear on certain dates, and between intervals of time with to-the-minute precision. <br><br> Specify `Start Date`, `Start Time`, `End Date`, `End Time` and `Compliment` to have a compliment appear on the mirror between any given interval! Please visit [scheduling compliments](#scheduling-compliments) to learn more.
-| `Current Compliment`        | **Type:** Document <br>This document should contain current compliment to display on the mirror. <br><br> The contents of this document will display on the mirror, if any content is present.
-| `Random Compliments`        | **Type:** Document <br>This document should contain a JSON representation of random compliments to display based on time of day, or current weather. Each attribute should be an array of strings. <br><br> Check out the [compliments module configuration](https://github.com/MichMich/MagicMirror/tree/master/modules/default/compliments#compliment-configuration) for more information, as the MMM-RemoteCompliments implementation for random compliments was essentially built on top of that. <br><br>**Possible values for time of day:** `morning`, `afternoon`, `evening`, and `anytime`. <br> **Possible values for current weather:** `day_sunny`, `day_cloudy`, `cloudy`, `cloudy_windy`, `showers`, `rain`, `thunderstorm`, `snow`, `fog`, `night_clear`, `night_cloudy`, `night_showers`, `night_rain`, `night_thunderstorm`, `night_snow`, and `night_alt_cloudy_windy`.
-| `Configuration`        | **Type:** Spreadsheet <br> This spreadsheet contains many different configuration options for MMM-RemoteCompliments. <br><br> The majority of configurations  are done in this spreadsheet. Visit [Google Drive configuration options](#google-drive-configuration-options) to learn more about the contents of this spreadsheet. 
-| `Images`        | **Type:** Folder <br> Any images present in this folder will appear on the mirror. <br><br> If there is only one image, then that image will display statically on the mirror. If there is multiple images, however, the module will rotate through the images based on the [update interval](#update-intervals) specified for images in the configuration file.
-
-Note that for compliments, there is a priority mechanism which chooses which type of compliment to display in the case that multiple compliment types are present. The priority is as follows:
-* Scheduled Compliments > Current Compliment > Random Compliments
-
 ## Google Drive configuration options
 
 The majority of configurations for MMM-RemoteCompliments done via Google Drive, in the `configuration` spreadsheet.
@@ -145,6 +78,32 @@ This way the module configurations can be easily modified at any time, without a
 | `Image Max Height`        | The maximum height of the image displayed. (Pixels) <br><br>**Type:** `int` <br>**Default Value:** `500`
 | `Append Period`        | Whether to append a period to the end of the compliment (if the compliment does not end with a symbol already). <br><br>**Type:** `Boolean` <br>**Possible Values:**  `true` or `false` <br>**Default Value:** `false`
 
+## Google Drive files
+
+After the module is setup you will find a file hierarchy setup on your Google Drive like so:
+
+```
+Smart Mirror - Remote Compliments
+└─── Scheduled Compliments
+└─── Current Compliment
+└─── Random Compliments
+└─── Configuration
+└─── images
+```
+
+Once the files are created on your Google Drive, you can rename them however you like, and move the files wherever you want. The modules keeps track of the files by using their unique file IDs. The following table gives a breakdown of each file and folder:
+
+| File / Folder Name           | Description
+|----------------- |-----------
+| `Scheduled Compliment`        | **Type:** Spreadsheet <br>This spreadsheet allows for compliments to be scheduled to appear on certain dates, and between intervals of time with to-the-minute precision. <br><br> Specify `Start Date`, `Start Time`, `End Date`, `End Time` and `Compliment` to have a compliment appear on the mirror between any given interval! Please visit [scheduling compliments](#scheduling-compliments) to learn more.
+| `Current Compliment`        | **Type:** Document <br>This document should contain current compliment to display on the mirror. <br><br> The contents of this document will display on the mirror, if any content is present.
+| `Random Compliments`        | **Type:** Document <br>This document should contain a JSON representation of random compliments to display based on time of day, or current weather. Each attribute should be an array of strings. <br><br> Check out the [compliments module configuration](https://github.com/MichMich/MagicMirror/tree/master/modules/default/compliments#compliment-configuration) for more information, as the MMM-RemoteCompliments implementation for random compliments was essentially built on top of that. <br><br>**Possible values for time of day:** `morning`, `afternoon`, `evening`, and `anytime`. <br> **Possible values for current weather:** `day_sunny`, `day_cloudy`, `cloudy`, `cloudy_windy`, `showers`, `rain`, `thunderstorm`, `snow`, `fog`, `night_clear`, `night_cloudy`, `night_showers`, `night_rain`, `night_thunderstorm`, `night_snow`, and `night_alt_cloudy_windy`.
+| `Configuration`        | **Type:** Spreadsheet <br> This spreadsheet contains many different configuration options for MMM-RemoteCompliments. <br><br> The majority of configurations  are done in this spreadsheet. Visit [Google Drive configuration options](#google-drive-configuration-options) to learn more about the contents of this spreadsheet. 
+| `Images`        | **Type:** Folder <br> Any images present in this folder will appear on the mirror. <br><br> If there is only one image, then that image will display statically on the mirror. If there is multiple images, however, the module will rotate through the images based on the [update interval](#update-intervals) specified for images in the configuration file.
+
+Note that for compliments, there is a priority mechanism which chooses which type of compliment to display in the case that multiple compliment types are present. The priority is as follows:
+* Scheduled Compliments > Current Compliment > Random Compliments
+
 ## Scheduling Compliments
 
 The scheduled compliments spreadsheet allows for compliments to appear between given date and time intervals.
@@ -162,7 +121,7 @@ Compliments offers a generous amount of formatting and input options.
 ### Valid date formats
 
 * **YYYY-MM-DD**
-    * This is the ISO 8601 standard.
+    * This is the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard.
     * Example: 1997-02-28
 
 * **Month Day, Year**
@@ -171,21 +130,18 @@ Compliments offers a generous amount of formatting and input options.
 
 * **Month Day**
     * In this case, the module assumes the current year.
-    * Example: February 28
+    * Example: February 28 --> February 28, 2018 (Assuming 2018 is the current year)
 
 ### Valid time formats
 
-* **HH:MM PM**
+* **HH:MM XM**
     * Examples: 
+        * 5:30 AM
+        * 10:00 AM
         * 5:30 PM
         * 10:00 PM
 
-* **HH:MM AM**
-    * Examples:
-        * 5:30 PM
-        * 10:00 PM
-
-* **HH:MM** (24 Hour Format)
+* **HH:MM** (Military Time)
     * Examples:
         * 8:00 (8:00 AM)
         * 20:00 (8:00 PM)
@@ -197,3 +153,44 @@ Compliments offers a generous amount of formatting and input options.
 * If only `start date` and `start time` are specified, the compliment will be displayed from the start time until 12:00 AM the next day.  
 
 * If only `start date`, `start time`, and `end time` are specified, the compliment will be displayed between the given time interval for that day.
+
+
+## Setup Instructions
+
+For MMM-RemoteCompliments to properly integrate with Google Drive you must download dependencies, create a Google Cloud Platform project to service the module, and execute the provided setup file.
+
+1. **Download dependencies**
+
+    * Open the console and enter `npm install googleapis`
+
+        * This will install the Google APIs service. (Working as of googleapis@33.0.0)
+
+2. **Create a Google Cloud Platform project**
+
+    * Visit https://console.developers.google.com.
+
+    * Create a new project, with a name of your choice.
+        * Enable the Google Drive API.
+        * Enable the Google Sheets API.
+
+    * Create new credentials for the project.
+        * Create a new OAuth Client ID, with the credential type set to "other".
+        * Download the JSON file for the OAuth Client ID you created. This is called the client secret.
+        * Move the client secret file into `/modules/MMM-RemoteCompliments/Drive`, then rename the file to "Auth.json". (Case sensitive)
+            * Note that alternatively, you can create a file called Auth.json and paste the contents of that client secret file into Auth.json.
+
+3. **Execute the setup file**
+
+    * Open a console and cd into `/modules/MMM-RemoteCompliments/Drive`.
+        * Enter `node Setup`.
+            * This will run the Setup.js script.
+
+    * You will be provided with a URL you must visit to authorize the application. 
+        * Visit the URL.
+        * Login with your Google Account and press then click on "Allow".
+        * Copy and paste the code you are provided with into the console.
+        * If done correctly, MMM-RemoteCompliments will now be authorized to integrate with the Google Cloud Platform project you created earlier.
+        
+    * The setup will then create the Google Drive folders, files, and other dependencies required by the MMM-RemoteCompliments module.
+        * If the setup was successful, you will get a success message. 
+        * If the setup encounters an error, please tend to the error that occurred (it will inform you what went wrong) and re-run `node Setup`.
