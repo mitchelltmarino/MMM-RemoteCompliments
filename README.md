@@ -53,7 +53,6 @@ This way the module configurations can be easily modified at any time, without a
 | `Random Compliments`        | Whether to display random compliments. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 | `Images`        | Whether to display images. <br><br>**Type:** `Boolean`<br>**Possible Values:** `true` or `false`<br>**Default Value:** `false`
 
-
 ### Random Compliments Variables
 | Option           | Description
 |----------------- |-----------
@@ -150,7 +149,7 @@ Compliments offers a generous amount of formatting and input options.
 
 * If only `start date` is specified, the compliment will be displayed for that entire day.
 
-* If only `start date` and `start time` are specified, the compliment will be displayed from the start time until 12:00 AM the next day.  
+* If only `start date` and `start time` are specified, the compliment will be displayed from the `start time` until 12:00 AM the next day.  
 
 * If only `start date`, `start time`, and `end time` are specified, the compliment will be displayed between the given time interval for that day.
 
