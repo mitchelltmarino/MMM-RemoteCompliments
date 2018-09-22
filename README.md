@@ -1,8 +1,10 @@
 # MMM-RemoteCompliments
 
-This is a module for the open source [MagicMirror²](https://github.com/MichMich/MagicMirror/) platform.
+!["Google Drive is a trademark of Google Inc. Use of this trademark is subject to Google Permissions."](https://developers.google.com/drive/images/drive_app_badge.png)
 
-MMM-RemoteCompliments provides seamless integration with Google Drive to display compliments and images on the MagicMirror² interface.
+MMM-RemoteCompliments is a module for the open source [MagicMirror²](https://github.com/MichMich/MagicMirror/) platform.
+
+MMM-RemoteCompliments provides seamless integration with Google Drive™ to display compliments and images on the MagicMirror² interface.
 
 ## Installation 
 
@@ -33,7 +35,7 @@ The following properties can be configured in the `config/config.js` file:
 
 | Option           | Description
 |----------------- |-----------
-| `header`        | The default header of the module. A value is required to enable changing of the header from Google Drive. <br><br>**Type:** `String`<br>**Default Value:** `"MMM-RemoteCompliments"`
+| `header`        | The default header of the module. A value is required to enable changing of the header from Google Drive. This value is **REQUIRED** to enable changing of the header value via Google Drive. <br><br>**Type:** `String`<br>**Default Value:** `"MMM-RemoteCompliments"`
 | `fadeSpeed`        | The speed of the update animation. (Milliseconds) <br><br>**Type:** `int`<br>**Possible Values:** `0` - `5000`<br>**Default Value:** `4000` (4 seconds)
 | `fetchInterval`        | The interval at which fetches from Google Drive should occur. (Milliseconds) <br><br>**Type:** `int`<br>**Possible Values:** `0` - `5000`<br>**Default Value:** `4000` (4 seconds)   
 
