@@ -10,7 +10,7 @@ MMM-RemoteCompliments provides seamless integration with Google Drive™ to disp
 
 * Navigate to the MagicMirror/modules directory.
 * Enter `git clone https://github.com/mitchelltmarino/MMM-RemoteCompliments.git`
-* Follow the [setup instructions](#setup-instructions) at the bottom of this page.
+* Follow the [setup instructions](/Drive/README.md) located in the Drive directory.
 * Restart MagicMirror.
 
 ## Using the module
@@ -154,44 +154,3 @@ Compliments offers a generous amount of formatting and input options.
 * If only `start date` and `start time` are specified, the compliment will be displayed from the `start time` until 12:00 AM the next day.  
 
 * If only `start date`, `start time`, and `end time` are specified, the compliment will be displayed between the given time interval for that day.
-
-
-## Setup Instructions
-
-For MMM-RemoteCompliments to properly integrate with Google Drive you must download dependencies, create a Google Cloud Platform project to service the module, and execute the provided setup file.
-
-1. **Download dependencies**
-
-    * Open the console and enter `npm install googleapis`
-
-        * This will install the Google APIs service. (Working as of googleapis@33.0.0)
-
-2. **Create a Google Cloud Platform project**
-
-    * Visit https://console.developers.google.com.
-
-    * Create a new project, with a name of your choice.
-        * Enable the Google Drive API.
-        * Enable the Google Sheets API.
-
-    * Create new credentials for the project.
-        * Create a new OAuth Client ID, with the credential type set to "other".
-        * Download the JSON file for the OAuth Client ID you created. This is called the client secret.
-        * Move the client secret file into `/modules/MMM-RemoteCompliments/Drive`, then rename the file to "Auth.json". (Case sensitive)
-            * Note that alternatively, you can create a file called Auth.json and paste the contents of that client secret file into Auth.json.
-
-3. **Execute the setup file**
-
-    * Open a console and cd into `/modules/MMM-RemoteCompliments/Drive`.
-        * Enter `node Setup`.
-            * This will run the Setup.js script.
-
-    * You will be provided with a URL you must visit to authorize the application. 
-        * Visit the URL.
-        * Login with your Google Account and press then click on "Allow".
-        * Copy and paste the code you are provided with into the console.
-        * If done correctly, MMM-RemoteCompliments will now be authorized to integrate with the Google Cloud Platform project you created earlier.
-        
-    * The setup will then create the Google Drive folders, files, and other dependencies required by the MMM-RemoteCompliments module.
-        * If the setup was successful, you will get a success message. 
-        * If the setup encounters an error, please tend to the error that occurred (it will inform you what went wrong) and re-run `node Setup`.
