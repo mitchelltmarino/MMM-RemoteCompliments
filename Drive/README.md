@@ -2,6 +2,12 @@
 
 For MMM-RemoteCompliments to properly integrate with Google Drive you must download dependencies, create a Google APIs project to service the module, and execute the provided setup file.
 
+## Table of Contents
+* [**Download dependencies**](#Download%20Dependencies)
+* [**Setting up your Google APIs project**](#Setting%20up%20your%20Google%20APIs%20project)
+* [**Authorizing the application**](#Authorizing%20the%20application)
+
+
 ## Download dependencies
 
 * Open the console and enter `npm install googleapis`
