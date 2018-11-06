@@ -1,10 +1,10 @@
 # MMM-RemoteCompliments
 
-!["Google Drive is a trademark of Google Inc. Use of this trademark is subject to Google Permissions."](https://developers.google.com/drive/images/drive_app_badge.png)
-
 MMM-RemoteCompliments is a module for the open source [MagicMirror²](https://github.com/MichMich/MagicMirror/) platform.
 
-MMM-RemoteCompliments provides seamless integration with Google Drive™ to display compliments and images from Drive on the MagicMirror² interface.
+MMM-RemoteCompliments provides seamless integration with Google Drive™ to display compliments and images from Drive on the MagicMirror² interface. 
+
+Google Drive is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
 
 !["A preview of the module."](/.Github/Preview.jpg)
 
