@@ -4,8 +4,6 @@ MMM-RemoteCompliments is a module for the open source [MagicMirror²](https://gi
 
 MMM-RemoteCompliments provides seamless integration with Google Drive™ to display compliments and images from Drive on the MagicMirror² interface. 
 
-Google Drive is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
-
 !["A preview of the module."](/.Github/Preview.jpg)
 
 ## Installation 
@@ -157,3 +155,7 @@ Compliments offers a generous amount of formatting and input options.
 * If only `start date` and `start time` are specified, the compliment will be displayed from the `start time` until 12:00 AM the next day.  
 
 * If only `start date`, `start time`, and `end time` are specified, the compliment will be displayed between the given time interval for that day.
+
+### Disclaimer
+
+Google Drive is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
