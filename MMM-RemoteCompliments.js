@@ -234,7 +234,7 @@ Module.register("MMM-RemoteCompliments", {
 		var self = this;
 		// -- Division --
 		var wrapper = document.createElement("div");
-		wrapper.className = this.config.classes ? this.config.classes : "thin medium bright";
+		wrapper.className = this.config.classes ? this.config.classes : "thin small bright";
 		// -- Compliment --
 		var compliment = document.createElement("p");
 		compliment.id = self.name + "-compliment";
