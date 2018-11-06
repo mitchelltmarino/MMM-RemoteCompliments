@@ -156,6 +156,6 @@ Compliments offers a generous amount of formatting and input options.
 
 * If only `start date`, `start time`, and `end time` are specified, the compliment will be displayed between the given time interval for that day.
 
-### Disclaimer
+## Disclaimer
 
 Google Drive is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
