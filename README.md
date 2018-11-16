@@ -4,6 +4,9 @@ MMM-RemoteCompliments is a module for the open source [MagicMirror²](https://gi
 
 MMM-RemoteCompliments provides seamless integration with Google Drive™ to display compliments and images from Drive on the MagicMirror² interface. 
 
+A full demo of the module can be found at:
+https://www.youtube.com/watch?v=cEcp47C1jPw
+
 !["A preview of the module."](/.Github/Preview.jpg)
 
 ## Installation 
