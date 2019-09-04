@@ -10,7 +10,7 @@ For MMM-RemoteCompliments to properly integrate with Google Drive you must downl
 
 ## Download dependencies
 
-* Open the console and enter `npm install googleapis`
+* Open the console and enter `npm install googleapis` from the MagicMirror root folder.
     * This will install the Google APIs service. (Working as of googleapis@33.0.0)
 
 ## Setting up your Google APIs project
